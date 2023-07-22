@@ -144,8 +144,8 @@ public class SwiftNordicDfuPlugin: NSObject, FlutterPlugin, FlutterStreamHandler
             
             dfuController = dfuInitiator.start(targetWithIdentifier: uuid)
         }
-        catch{
-        result(FlutterError(code: "DFU_FIRMWARE_NOT_FOUND", message: "Could not dfu zip file", details: nil))
+        catch let error{
+        result(FlutterError(code: "DFU_FIRMWARE_NOT_FOUND", message: "Could not dfu zip file \(error.localizedDescription)", details: nil))
             return
         }
     }
